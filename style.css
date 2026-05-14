@@ -4,7 +4,7 @@ body{
 }
 
 .spin {
-    width: 600px;
+    width: 200px;
     animation: rotate 20s linear infinite;
 }
 
