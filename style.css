@@ -26,3 +26,19 @@ body{
     object-fit: cover;
     z-index: -1;
 }
+
+#start {
+    width: 450px;
+    position: fixed;
+    left: 35%;
+    top: 40%;
+}
+
+#sanu_verejs {
+    width: 30px;
+    height: 50PX;
+    border-color: black;
+    position: absolute;
+    right: 0;
+    top: 45%;
+}
