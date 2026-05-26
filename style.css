@@ -1,6 +1,7 @@
-body{
+html, body {
     margin: 0;
     overflow: hidden;
+    height: 100%;
 }
 
 .spin {
@@ -34,11 +35,35 @@ body{
     top: 40%;
 }
 
-#sanu_verejs {
-    width: 30px;
-    height: 50PX;
-    border-color: black;
+#neredzama_dala {
+    background-color: blueviolet;
+    width: 300px;
+    height: 60vh;
     position: absolute;
-    right: 0;
-    top: 45%;
+    top: 20%;
+    transition: right 0.4s ease;
+}
+
+#sanu_verejs {
+    height: 50px;
+    width: 25px;
+    position: absolute;
+    right: 300px;
+    top: 49%;
+    transition: right 0.4s ease;
+}
+
+#plusi {
+    position: absolute;
+    top: 2vw;
+    right: 4vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+#teksts {
+    margin: 0;
+    color: rgb(0, 255, 17);
 }
