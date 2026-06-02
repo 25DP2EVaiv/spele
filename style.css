@@ -36,19 +36,81 @@ html, body {
 }
 
 #neredzama_dala {
-    background-color: blueviolet;
-    width: 300px;
+    background-color: rgb(210, 205, 214);
+    width: 15.5vw;
     height: 60vh;
     position: absolute;
     top: 20%;
     transition: right 0.4s ease;
 }
 
+.neredzama_dala_virsraksts {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 1vw;
+}
+
+#upgrade {
+    border: 0.2vw solid;
+    border-color: #222e50;
+    border-radius: 1vw;
+    width: 5.5vw;
+    padding-left: 0.4vw;
+    background-color: #bba0b2;
+    color: #222e50;
+    font-size: 1vw;
+    font-weight: 600;
+    height: auto;
+    margin-top: 0.75vw;
+}
+
+#upgrade:hover {
+    background-color: #a37e96;
+}
+
+#quests {
+    border: 0.2vw solid;
+    border-color: #222e50;
+    border-radius: 1vw;
+    width: 5vw;
+    padding-left: 0.4vw;
+    background-color: #bba0b2;
+    color: #222e50;
+    font-size: 1vw;
+    font-weight: 600;
+    height: auto;
+    margin-top: 0.75vw;
+}
+
+#quests:hover {
+    background-color: #a37e96;
+}
+
+#sasniegumi {
+    border: 0.2vw solid;
+    border-color: #222e50;
+    border-radius: 1vw;
+    width: 8vw;
+    padding-left: 0.4vw;
+    background-color: #bba0b2;
+    color: #222e50;
+    font-size: 1vw;
+    font-weight: 600;
+    height: auto;
+    margin-top: 0.75vw;
+    margin-left: 3.5vw;
+}
+
+#sasniegumi:hover {
+    background-color: #a37e96;
+}
+
 #sanu_verejs {
-    height: 50px;
-    width: 25px;
+    height: 2.5vw;
+    width: 1.5vw;
     position: absolute;
-    right: 300px;
+    right: 15.4vw;
     top: 49%;
     transition: right 0.4s ease;
 }
@@ -67,3 +129,4 @@ html, body {
     margin: 0;
     color: rgb(0, 255, 17);
 }
+
