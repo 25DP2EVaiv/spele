@@ -1,279 +1,607 @@
 html, body {
+
     margin: 0;
+
     overflow: hidden;
+
     height: 100%;
+
 }
+
+
 
 * {
+
     font-family: 'Press Start 2P', monospace !important;
+
 }
+
+
 
 main {
+
     position: relative;
+
     width: 100%;
+
     height: 100%;
+
 }
+
+
 
 aside {
+
     position: relative;
+
 }
+
+
 
 nav {
+
     position: relative;
+
 }
+
+
 
 footer {
+
     position: relative;
+
 }
+
+
 
 .spin {
+
     width: 200px;
+
     animation: rotate 20s linear infinite;
+
 }
+
+
 
 @keyframes rotate {
+
     from {
+
         transform: rotate(0deg);
+
     }
+
     to {
+
         transform: rotate(360deg);
+
     }
+
 }
+
+
 
 #fons {
+
     width: 100%;
+
     height: 100%;
+
     position: fixed;
+
     top: 0;
+
     left: 0;
+
     object-fit: cover;
+
     z-index: -1;
+
 }
+
+
 
 #start {
+
     width: 450px;
+
     position: fixed;
+
     left: 35%;
+
     top: 40%;
+
 }
+
+
 
 #neredzama_dala {
+
     background-color: rgb(210, 205, 214);
+
     width: 15.5vw;
+
     height: 30vw;
+
     position: absolute;
+
     top: 0.1vw;
+
     transition: right 0.4s ease;
+
 }
+
+
 
 .neredzama_dala_virsraksts {
+
     display: flex;
+
     flex-direction: row;
+
     justify-content: space-evenly;
+
     gap: 0.1vw;
+
 }
+
+
 
 #upgrade {
+
     border: 0.2vw solid;
+
     border-color: #222e50;
+
     border-radius: 1vw;
+
     width: 8vw;
+
     padding-left: 0.4vw;
+
     background-color: #bba0b2;
+
     color: #222e50;
+
     font-size: 1vw;
+
     font-weight: 600;
+
     height: 2vw;
+
     margin-top: 0.75vw;
+
 }
+
+
 
 #upgrade:hover {
+
     background-color: #a37e96;
+
 }
+
+
 
 #quests {
+
     border: 0.2vw solid;
+
     border-color: #222e50;
+
     border-radius: 1vw;
+
     width: 6.9vw;
+
     padding-left: 0.4vw;
+
     background-color: #bba0b2;
+
     color: #222e50;
+
     font-size: 1vw;
+
     font-weight: 600;
+
     height: 2vw;
+
     margin-top: 0.75vw;
+
 }
+
+
 
 #quests:hover {
+
     background-color: #a37e96;
+
 }
+
+
 
 #sasniegumi {
+
     border: 0.2vw solid;
+
     border-color: #222e50;
+
     border-radius: 1vw;
+
     width: 11.8vw;
+
     padding-left: 0.4vw;
+
     background-color: #bba0b2;
+
     color: #222e50;
+
     font-size: 1vw;
+
     font-weight: 600;
+
     height: 2vw;
+
     margin-top: 0.75vw;
+
     margin-left: 2vw;
+
 }
+
+
 
 #sasniegumi:hover {
+
     background-color: #a37e96;
+
 }
+
+
 
 #sanu_verejs {
+
     height: 2.5vw;
+
     width: 1.5vw;
+
     position: absolute;
+
     right: 15.4vw;
+
     top: 14vw;
+
     transition: right 0.4s ease;
+
     border: none;
+
     cursor: pointer;
+
 }
+
+
 
 #plusi {
+
     position: relative;
+
     top: 0vw;
+
     right: 4vw;
+
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
+
 }
+
+
 
 #skaititajs {
+
     color: #ffffff;
+
     margin: 0;
+
     font-size: 2vw;
+
 }
+
+
 
 #teksts {
+
     margin: 0;
+
     color: rgb(0, 255, 17);
+
     position: absolute;
+
     top: 3vw;
+
 }
 
+
+
 #pardosana {
+
     position: absolute;
+
     background-color: rgb(144, 15, 15);
+
     width: auto;
+
     height: auto;
+
     border: 0.4vw solid #000000;
+
     border-radius: 1vw;
+
     padding: 0.5vw;
+
     bottom: 2vw;
+
     right: 5vw;
+
     font-size: 2vw;
+
     cursor: pointer;
+
     color: #ffffff;
+
 }
+
+
+
 
 
 #nauda {
+
     position: relative;
+
     top: 0vw;
+
     color: rgb(0, 0, 0);
+
     margin: 0;
+
     margin-left: 1vw;
+
 }
+
+
 
 #zem_naudas {
+
     margin: 0;
+
     color: rgb(0, 255, 17);
+
     position: absolute;
+
     top: 5.5vw;
+
     opacity: 1;
+
     transition: opacity 2s;
+
 }
+
+
 
 #naudas_sadala {
+
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
+
 }
+
+
 
 #augsa {
+
     position: absolute;
+
     right: 0;
+
     display: flex;
+
     flex-direction: row;
+
     justify-content: space-between;
+
     align-items: center;
+
     background-color: rgb(210, 205, 214);
+
     width: 70%;
+
     height: 8vw;
+
     border: 0.2vw solid #222e50;
+
 }
+
+
 
 #buy_clicker:hover {
+
     background-color: #a37e96;
+
 }
+
+
 
 #panel {
+
     font-size: 1.2vw;
+
     border-bottom: 0.2vw solid #000000;
+
     width: 14vw;
+
     margin-left: 0.4vw;
+
     padding-bottom: 0.4vw;
+
     margin-top: 10vw;
+
 }
+
+
 
 #panel_1rinda {
+
     position: absolute;
+
     font-size: 0.6vw;
+
     text-decoration-line: line-through;
+
     text-decoration-color: #000000;
+
     text-decoration-thickness: 0.1vw;
+
     left: 0.4vw;
+
     background-color: #00ff26;
+
     width: 13.25vw;
+
     height: 5vw;
+
     border-radius: 1vw;
+
     border: 0.2vw solid #000000;
+
     padding-left: 0.4vw;
+
     padding-top: 0.4vw;
+
 }
+
+
 
 #panel_2rinda {
+
 position: absolute;
+
 font-size: 0.8vw;
+
 top: 20.75vw;
+
 left: 1vw;
+
 }
+
+
 
 #panel_upgrade {
+
     position: absolute;
+
     top: 23vw;
+
     left: 1vw;
+
     border: 0.2vw solid #000000;
+
     border-radius: 1vw;
+
     width: 5vw;
+
     height: 1.5vw;
+
     font-size: 0.8vw;
+
 }
+
+
 
 #panel_upgrade:hover {
+
     background-color: #a37e96;
+
 }
+
+
 
 #panel_cena {
+
     position: absolute;
+
     font-size: 0.6vw;
+
     top: 23vw;
+
     left: 6.5vw;
+
 }
 
+
+
 #coin_panel {
+
     position: absolute;
+
     top: 22.9vw;
+
     left: 11.7vw;
+
     width: 3vw
+
+}
+
+/* Quests sadaļas stili */
+#quests_saturs {
+    padding: 1vw;
+    color: #000000;
+}
+
+.quest_virsraksts {
+    font-size: 1.2vw;
+    border-bottom: 0.2vw solid #000000;
+    padding-bottom: 0.4vw;
+    margin-top: 1.5vw;
+}
+
+.quest_logs {
+    background-color: #a37e96;
+    border: 0.2vw solid #000000;
+    border-radius: 1vw;
+    padding: 0.6vw;
+    margin-top: 1vw;
+}
+
+.quest_logs p {
+    margin: 0.3vw 0;
+}
+
+#q1_teksts {
+    font-size: 0.7vw;
+}
+
+#q1_progress {
+    font-size: 0.6vw;
+    color: #ffffff;
+}
+
+#q1_poga {
+    border: 0.15vw solid #000000;
+    border-radius: 0.5vw;
+    font-size: 0.6vw;
+    cursor: pointer;
+    width: 100%;
+    height: 1.8vw;
+    margin-top: 0.4vw;
+    background-color: #00ff26;
+}
+
+#q1_poga:disabled {
+    background-color: #7c7c7c;
+    cursor: not-allowed;
 }

@@ -7,6 +7,10 @@ let pendingWh = 0;
 let klikskis = 0;
 let timeoutID;
 
+// JAUNS: Mainīgie uzdevumu sekošanai
+let kopejie_klikski = 0;
+let q1_pabeigts = false;
+
 const maksimalais_saulei = 4;
 const maksimalais_fonam = 3;
 
@@ -19,7 +23,6 @@ const saule = document.getElementById('saule');
 const tekts = document.getElementById('teksts');
 const upgrade_poga = document.getElementById('upgrade');
 const quest_poga = document.getElementById('quests');
-const sasniegumu_poga = document.getElementById('sasniegumi');
 const pirmā_rinda = document.getElementById('pirmā_rinda');
 const otrā_rinda = document.getElementById('otrā_rinda');
 const trešā_rinda = document.getElementById('trešā_rinda');
@@ -27,10 +30,16 @@ const ceturtā_rinda = document.getElementById('ceturtā_rinda');
 const buy_clicker = document.getElementById('buy_clicker');
 const coin = document.getElementById('coin');
 const zem_naudas = document.getElementById('zem_naudas');
-const panel_upgrade = document.getElementById('panel_upgrade')
-const panel_1rinda = document.getElementById('panel_1rinda')
-const panel_2rinda = document.getElementById('panel_2rinda')
-const panel_cena = document.getElementById('panel_cena')
+const panel_upgrade = document.getElementById('panel_upgrade');
+const panel_1rinda = document.getElementById('panel_1rinda');
+const panel_2rinda = document.getElementById('panel_2rinda');
+const panel_cena = document.getElementById('panel_cena');
+
+// JAUNS: HTML elementi sadaļu pārslēgšanai un uzdevumiem
+const upgrade_saturs = document.getElementById('upgrade_saturs');
+const quests_saturs = document.getElementById('quests_saturs');
+const q1_progress = document.getElementById('q1_progress');
+const q1_poga = document.getElementById('q1_poga');
 
 function atjaunotEnerģijasSkaitītāju() {
     if (energyWh < 1000) {
@@ -114,13 +123,17 @@ setInterval(() => {
     if (clicker_lvl === 2) nepieciesama_nauda = 0.1;
     if (panel_lvl === 2) nepieciesama_nauda_panelim = 0.1;
     if (clicker_lvl === 3) nepieciesama_nauda = 1.0; 
-    if (clicker_lvl === 3) nepieciesama_nauda_panelim = 1.0;
+    if (panel_lvl === 3) nepieciesama_nauda_panelim = 1.0;
 
     if (nauda < nepieciesama_nauda) {
         ceturtā_rinda.style.color = 'red';
-        panel_cena.style.color = 'red';
     } else {
         ceturtā_rinda.style.color = 'black';
+    }
+
+    if (nauda < nepieciesama_nauda_panelim) {
+        panel_cena.style.color = 'red';
+    } else {
         panel_cena.style.color = 'black';
     }
 }, 100);
@@ -135,12 +148,21 @@ sanu_verejs.addEventListener("click", () => {
     }
 });
 
+// JAUNS: Funkcija, kas atjauno uzdevumu progresu vizuāli
+function atjaunotUzdevumus() {
+    if (!q1_pabeigts) {
+        q1_progress.textContent = kopejie_klikski + " / 50";
+        if (kopejie_klikski >= 50) {
+            q1_poga.disabled = false;
+        }
+    }
+}
+
 saule.addEventListener('click', () => {
     tekts.style.transform = "scale(1.2)";
     setTimeout(() => {
         tekts.style.transform = "scale(1)";
     }, 100);
-    
     
     let klikska_jauda = Math.pow(5, clicker_lvl - 1);
 
@@ -148,6 +170,10 @@ saule.addEventListener('click', () => {
     klikskis += klikska_jauda;
     tekts.textContent = '+' + klikskis;
     
+    // JAUNS: Pieskaitām klikšķi priekš Quest un atjaunojam datus
+    kopejie_klikski++;
+    atjaunotUzdevumus();
+
     clearTimeout(timeoutID);
     timeoutID = setTimeout(() => {
         klikskis = 0;
@@ -185,8 +211,7 @@ panel_upgrade.addEventListener('click', () => {
         alert("Not enough money to buy upgrade!");
     }
 });
-   
-
+    
 buy_clicker.addEventListener('click', () => {
     if (clicker_lvl === 1 && nauda >= 0.01) {
         nauda -= 0.01;
@@ -235,26 +260,51 @@ pardosana.addEventListener('click', () => {
     }
 });
 
+// JAUNS: Aktīvā pārslēgšanās uz UPGRADE sadaļu
 upgrade_poga.addEventListener('click', () => {
     upgrade_poga.style.borderColor = "#bba0b2"; 
     upgrade_poga.style.backgroundColor = "#222e50";
     upgrade_poga.style.color = "#bba0b2";
+    
     quest_poga.style.borderColor = "#222e50";
     quest_poga.style.backgroundColor = "#bba0b2";
     quest_poga.style.color = "#222e50";
-    sasniegumu_poga.style.borderColor = "#222e50";
-    sasniegumu_poga.style.backgroundColor = "#bba0b2";
-    sasniegumu_poga.style.color = "#222e50";
+
+    // Parāda upgrade, paslēpj quest
+    upgrade_saturs.style.display = "block";
+    quests_saturs.style.display = "none";
 });
 
+// JAUNS: Aktīvā pārslēgšanās uz QUESTS sadaļu
 quest_poga.addEventListener('click', () => {
     quest_poga.style.borderColor = "#bba0b2"; 
     quest_poga.style.backgroundColor = "#222e50";
     quest_poga.style.color = "#bba0b2";
+    
     upgrade_poga.style.borderColor = "#222e50";
     upgrade_poga.style.backgroundColor = "#bba0b2";
     upgrade_poga.style.color = "#222e50";
-    sasniegumu_poga.style.borderColor = "#222e50";
-    sasniegumu_poga.style.backgroundColor = "#bba0b2";
-    sasniegumu_poga.style.color = "#222e50";
+
+    // Paslēpj upgrade, parāda quest
+    upgrade_saturs.style.display = "none";
+    quests_saturs.style.display = "block";
+});
+
+// JAUNS: Loģika uzdevuma balvas saņemšanai
+q1_poga.addEventListener('click', () => {
+    if (kopejie_klikski >= 50 && !q1_pabeigts) {
+        nauda += 0.05;
+        nauda_teksts.textContent = 'Money: ' + nauda.toFixed(2);
+        
+        zem_naudas.textContent = '+0.05';
+        zem_naudas.style.color = 'green';
+        zem_naudas.style.opacity = '1';
+        setTimeout(() => { zem_naudas.style.opacity = '0'; }, 1000);
+
+        q1_pabeigts = true;
+        q1_progress.textContent = "Completed!";
+        q1_progress.style.color = "#00ff26";
+        q1_poga.textContent = "Done";
+        q1_poga.disabled = true;
+    }
 });
