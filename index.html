@@ -3,8 +3,20 @@
 <head>
     <title>Saules paneļi</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div id="augsa">
+        <div id="naudas_sadala">
+            <h1 id="nauda">Money:0</h1>
+            <h1 id="zem_naudas"></h1>
+        </div>
+        <div id="plusi">
+            <h1 id="skaititajs">Energy = 0 Wh</h1>
+            <h1 id="teksts"></h1>  
+        </div>
+    </div>
+    <h1 id="pardosana">Sell</h1>
     <img class="spin" id="saule" src="1_saules_kadrs.png" alt="saule">
     <img id="fons" src="fons.png" alt="fons">
     <img src="saules_panelis_lvl1.png" alt="pirmais_lvl" id="start">
@@ -15,14 +27,20 @@
                 <button id="upgrade">Upgrade</button>
                 <button id="quests">Quests</button>
             </div>
-            <button id="sasniegumi">Achievement</button>
             <h1 id="pirmā_rinda"></h1>
+            <h2 id="otrā_rinda"></h2>
+            <h2 id="trešā_rinda"></h2>
+            <button id="buy_clicker"></button>
+            <h2 id="ceturtā_rinda"></h2>
+            <img src="coin.png" id="coin" alt="coin">
+            <h1 id="panel">Panel</h1>
+            <h1 id="panel_1rinda">1 wh/per sec</h1>
+            <h1 id="panel_2rinda">5 wh/per sec</h1>
+            <button id="panel_upgrade">Buy</button>
+            <h2 id="panel_cena">Price:0.01</h2>
+            <img src="coin.png" id="coin_panel" class='coins' alt="coin">
         </div>
     </aside>
-    <div id="plusi">
-        <h1 id="skaititajs">Energy = 0 Wh</h1>
-        <h1 id="teksts"></h1>  
-    </div>
 </body>
 <script src="script.js">
 </script>
